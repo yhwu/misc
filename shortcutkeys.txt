@@ -1,0 +1,40 @@
+## Windows
+
+Copy full path: Shift + right-click, Copy-as-path
+Copy full path: Shift + F10, Copy-as-path
+
+
+## Excel
+
+Ctrl + ' : Toggle formulas on and off 
+Ctrl + [ :  move your cursor to the precedent(s) of the current cell
+Ctrl + ] :  will move your cursor to the dependent(s) of the current cell
+
+
+## Pycharm
+
+Ctrl + Home : goto top of script
+Ctrl + End : goto end of script
+
+Ctrl + Shift + F10 : run script
+Shift + F9 : debug script
+
+Ctrl + Alt + L : auto format selected code
+
+Ctrl + B : go to function definition 
+Ctrl + Alt + left : go to previous cursor position
+Alt + F7 : find usage
+
+Ctrl + Shift + Up   : bring a line up
+Ctrl + Shift + Down : bring a line down
+Ctrl + Shift + [ : Select to code block start 
+Ctrl + Shift + ] : Select to code block end 
+
+Ctrl + Up   : bring window up
+Ctrl + Down : bring window down
+Ctrl + right  : move cursor right by a word 
+Ctrl + left   : move cursor left by a word 
+
+Ctrl + d   : duplicate 
+
+## Sql Workbench
