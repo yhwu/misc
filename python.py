@@ -49,6 +49,10 @@ pd.set_option('display.max_columns', 1000)
 pd.set_option('display.max_rows', 20)
 
 
+# pycham set numpy display.width
+np.set_printoptions(linewidth=150)
+
+
 # date to datetime
 pd.Timestamp(date(2014,1,1)).to_datetime()
 
