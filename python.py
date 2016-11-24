@@ -53,6 +53,13 @@ pd.set_option('display.max_rows', 20)
 np.set_printoptions(linewidth=150)
 
 
+# igraph, pycairo intall
+# source http://www.lfd.uci.edu/~gohlke/pythonlibs/#python-igraph   
+pip install .\python_igraph-0.7.1.post6-cp35-none-win_amd64.whl
+# source http://www.lfd.uci.edu/~gohlke/pythonlibs/#pycairo
+pip install .\pycairo-1.10.0-cp35-cp35m-win_amd64.whl
+
+
 # date to datetime
 pd.Timestamp(date(2014,1,1)).to_datetime()
 
