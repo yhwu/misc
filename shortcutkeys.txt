@@ -3,6 +3,11 @@
 Copy full path: Shift + right-click, Copy-as-path
 Copy full path: Shift + F10, Copy-as-path
 
+WIN + CTRL + LEFT/RIGHT: Switch to previous or next desktop
+WIN + CTRL + D         : Create a new desktop
+WIN + CTRL + F4        : Close the current desktop
+WIN + TAB              : Launch task view
+
 
 ## Excel
 
