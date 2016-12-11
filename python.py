@@ -1,3 +1,18 @@
+# imports
+# plotly
+import plotly.plotly as py
+from plotly.graph_objs import Scatter, Figure, Layout
+import plotly.offline as offline
+from plotly import tools
+#time
+import datetime
+import calendar
+from dateutil.relativedelta import relativedelta
+# load, reload mudule
+import importlib
+importlib.reload(portval_func); from portval_func import *
+
+
 # sqlalchemy show full statement
 showquery = lambda session, q : str(q.statement.compile(dialect=session.bind.dialect, compile_kwargs={"literal_binds": True}))
 showquery(session, q)
@@ -16,10 +31,7 @@ def reprobj(obj):
     
 # tricky behaviours
 1. sum of NaN is 0 by default
-nn = pd.DataFrame({
-    'a' : [np.nan] * 10,
-    'b' : [np.nan] * 10
-})
+nn = pd.DataFrame({'a' : [np.nan] * 10, 'b' : [np.nan] * 10})
 nn.sum()
 Out[81]: 
 a    0.0
@@ -43,13 +55,10 @@ writeLines(toJSON(x), 'C:/temp/df.jason')
 as.data.frame(fromJSON('C:/temp/df.jason'))
 pd.read_json('C:\\temp\\hist_cost.jason')
 
-# pycham set pandas display.width
+# pycham set pandas numpy display
 pd.set_option('display.width', 150)
 pd.set_option('display.max_columns', 1000)
 pd.set_option('display.max_rows', 20)
-
-
-# pycham set numpy display.width
 np.set_printoptions(linewidth=150)
 
 
@@ -62,16 +71,7 @@ pip install .\pycairo-1.10.0-cp35-cp35m-win_amd64.whl
 
 # date to datetime
 pd.Timestamp(date(2014,1,1)).to_datetime()
-
-
-# index, reference to multiindexed pandas dataframe
-idx = CC_diff.loc[~CC_diff.CC2].index[0] #idx = ('CIN.GIBSON.5', 'HE.RATTS1'), an index of an indexed pd
-needed = ['source', 'sink', 'avg_congestion', 'CC1', 'CC2', 'CC3']
-analysis[needed].set_index(keys=['source', 'sink']).loc[idx]
-analysis[needed].set_index(keys=['source', 'sink']).loc[('CIN.GIBSON.5', 'HE.RATTS1')]
-analysis[needed].set_index(keys=['source', 'sink']).loc[0] # wrong
-analysis[needed].set_index(keys=['source', 'sink'])[0]     # wrong
-analysis[needed].set_index(keys=['source', 'sink'])['CC1'] # works, upmost level index
+pd.to_datetime(a.date, format='%m/%d/%Y') # format is needed, otherwise every slow
 
 
 # arg parser in interactive console
@@ -96,9 +96,10 @@ exec(compile(open(file1).read(), file1, 'exec'))
 
 # pickle object, load pickle
 import pickle
-favorite_color = { "lion": "yellow", "kitty": "red" }
-pickle.dump( favorite_color,  open( "save.p", "wb" ) )
-favorite_color = pickle.load( open( "save.p", "rb" ) )
+a = { "lion": "yellow", "kitty": "red" }
+b = [1, 2, 3]
+pickle.dump([a, b], open( "save.p", "wb" ))
+a, b = pickle.load(open( "save.p", "rb" ))
 
 
 # save and load all objects
@@ -116,7 +117,4 @@ for key in my_shelf:
 my_shelf.close()
 
 
-# load, reload mudule
-import importlib
-importlib.reload(portval_func); from portval_func import *
 
