@@ -26,3 +26,9 @@ netsh advfirewall set allprofiles state off
 # disable password experiration
 net accounts /maxpwage:unlimited
 
+# fix quick access working on it 
+# http://www.thewindowsclub.com/quick-access-in-windows-10-is-not-working
+# clear the following folders and reboot
+%AppData%\Microsoft\Windows\Recent\AutomaticDestinations
+%AppData%\Microsoft\Windows\Recent\CustomDestinations
+
