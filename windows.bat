@@ -32,7 +32,11 @@ net accounts /maxpwage:unlimited
 %AppData%\Microsoft\Windows\Recent\AutomaticDestinations
 %AppData%\Microsoft\Windows\Recent\CustomDestinations
 
-# note msys2 pacman.exe interferes with mactype add the following to default.ini
+# rsync, ssh
+# install msys2, follow the instructions https://msys2.github.io/
+# use pacman to install openssh, rsync
+# note msys2 pacman.exe interferes with mactype, add the following to mactype's default.ini
 [UnloadDll]
 gpg.exe
 pacman.exe
+
