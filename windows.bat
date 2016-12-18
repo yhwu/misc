@@ -32,3 +32,7 @@ net accounts /maxpwage:unlimited
 %AppData%\Microsoft\Windows\Recent\AutomaticDestinations
 %AppData%\Microsoft\Windows\Recent\CustomDestinations
 
+# note msys2 pacman.exe interferes with mactype add the following to default.ini
+[UnloadDll]
+gpg.exe
+pacman.exe
