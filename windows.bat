@@ -39,4 +39,5 @@ net accounts /maxpwage:unlimited
 [UnloadDll]
 gpg.exe
 pacman.exe
-
+# rsync, ssh, make sure ssh can login without password in msys64 console
+C:\Opt\msys64\usr\bin\rsync.exe -av -e "C:\Opt\msys64\usr\bin\ssh.exe" /c/Users/bob/etc 192.168.1.2:~/tmp/
