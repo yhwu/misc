@@ -13,3 +13,9 @@ https://github.com/dahlbyk/posh-git
 
 # ls -lst
 ls | sort -Descending -property LastWriteTime
+
+# head, tail
+Get-Content .\stdout.txt -Head 5
+Get-Content .\stdout.txt -Wait
+Get-Content .\stdout.txt -Tail 5
+
