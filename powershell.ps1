@@ -11,3 +11,5 @@ notepad++.exe $PROFILE
 # git for powershell
 https://github.com/dahlbyk/posh-git
 
+# ls -lst
+ls | sort -Descending -property LastWriteTime
