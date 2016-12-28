@@ -19,3 +19,5 @@ Get-Content .\stdout.txt -Head 5
 Get-Content .\stdout.txt -Wait
 Get-Content .\stdout.txt -Tail 5
 
+# set PATH
+setx PYTHONPATH "$env:PYTHONPATH;$pwd"
