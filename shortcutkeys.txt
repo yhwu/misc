@@ -25,6 +25,7 @@ Ctrl + Shift + F10 : run script
 Shift + F9 : debug script
 
 Ctrl + Alt + L : auto format selected code
+Ctrl + Alt + o : optimize imports
 
 Ctrl + B : go to function definition 
 Ctrl + Alt + left : go to previous cursor position
