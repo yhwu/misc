@@ -21,6 +21,8 @@ showquery(session, q)
 # update
 conda update conda
 conda update anaconda
+conda search --outdated
+conda update --all
 
 
 # show an object
