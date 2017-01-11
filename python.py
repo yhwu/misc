@@ -91,6 +91,10 @@ sys.argv=command.split()
                .replace('[(]', '-',   regex=True).astype(float))
 
 
+# flattern multilevel column names
+x1.columns = ['_'.join(col).strip() for col in x1.columns.values]
+
+
 # run another py from a script
 file1 = 'C:\\Users\\excel.py'
 exec(compile(open(file1).read(), file1, 'exec'))
