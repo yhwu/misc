@@ -21,3 +21,13 @@ Get-Content .\stdout.txt -Tail 5
 
 # set PATH
 setx PYTHONPATH "$env:PYTHONPATH;$pwd"
+
+# open current folder with file explorer
+Invoke-Item .
+ii .
+
+
+# open a file
+Invoke-Item a.csv
+ii a.csv
+
