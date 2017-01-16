@@ -4,9 +4,11 @@ takeown /f <foldername> /r /d y
 takeown /r /d y /f f:\backup 
 icacls f:\backup /t /grant Everyone:(OI)(CI)F
 
+
 # enable disable hibernation, run elevated
 powercfg -h on
 powercfg -h off
+
 
 # permanantly disable windows firewall on windows 10
 netsh advfirewall set allprofiles state off
@@ -26,11 +28,17 @@ netsh advfirewall set allprofiles state off
 # disable password experiration
 net accounts /maxpwage:unlimited
 
+# disable windows autoupdate
+gpedit.msc
+Navigate to Computer Configuration\Administrative Templates\Windows Components\Windows Update
+
+
 # fix quick access working on it 
 # http://www.thewindowsclub.com/quick-access-in-windows-10-is-not-working
 # clear the following folders and reboot
 %AppData%\Microsoft\Windows\Recent\AutomaticDestinations
 %AppData%\Microsoft\Windows\Recent\CustomDestinations
+
 
 # rsync, ssh in powershell
 # install msys2, follow the instructions https://msys2.github.io/
