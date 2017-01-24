@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # taken from http://ojuba.org/cltb/en/articles/mdb2sqlite.html
 
 mdb=$1
