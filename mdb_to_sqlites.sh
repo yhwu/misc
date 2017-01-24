@@ -4,18 +4,20 @@
 
 mdb=$1
 if [[ $#>1 ]]; then
-	db=$2
+    db=$2
 else
-	db=${mdb/\.mdb/\.sqlite3}
+    db=${mdb/\.mdb/\.sqlite3}
 fi
 
 echo input : $mdb
 echo output: $db
 
-mdb-schema "$mdb" sqlite | grep -v ^ALTER | sqlite3 $db
-for i in $(mdb-tables "$mdb"); do echo $i; (
-  echo "BEGIN TRANSACTION;";
-  mdb-export -I sqlite "$mdb" $i;
-  echo "END TRANSACTION;" ) | sqlite3 "$db"; done
+mdb-schema "$mdb" sqlite | grep -v ^ALTER | sqlite3 "$db"
+for i in $(mdb-tables "$mdb"); do 
+    echo $i; 
+    (echo "BEGIN TRANSACTION;";
+    mdb-export -I sqlite "$mdb" $i;
+    echo "END TRANSACTION;" ) | sqlite3 "$db"; 
+done
 
 exit 0
