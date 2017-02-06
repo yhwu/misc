@@ -43,4 +43,4 @@ export AWS_ACCESS_KEY_ID=Axxxxx
 export AWS_SECRET_ACCESS_KEY=sxxxxx
 mkdir -p /root/s3
 riofs [bucketname] /root/s3
-# this is much faster than s3fs
+# much faster than s3fs, but better use it for backup than normal read and write
