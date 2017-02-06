@@ -1,3 +1,9 @@
+# docker run
+docker run -it --name image-dev ubuntu:16.04 /bin/bash
+docker run --rm -it --name image-dev ubuntu:16.04 /bin/bash
+docker start -i 18ff6cec386a # attach to a quited docker
+docker exec -i -t 665b4a1e17b6 /bin/bash # attach to a running docker
+
 # docker ps
 docker ps -a
 docker ps -a -f status=running
@@ -9,6 +15,13 @@ docker rmi $(docker images -aq)
  
 # docker images
 docker images
+docker diff image-dev
+
+# docker commit
+docker commit -m 'something' 1xxxxxxa ubuntu-a1
+
+# tag an image
+docker tag yhwu/docker-whale 5xxxxxx9.dkr.ecr.us-east-1.amazonaws.com/adocker:latest
 
 # aws repo
 aws ecr get-login --region us-east-1
