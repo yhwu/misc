@@ -1,3 +1,15 @@
+# get process
+Get-Process python
+Get-Process | where{$_.ProcessName -match 'py'}
+Get-Process | where{$_.ProcessName -match 'python'  -and $_.cpu -gt 10 }
+(Get-Process | where{$_.ProcessName -match 'python'  -and $_.cpu -gt 10 }).count
+
+Get-Process python | Stop-Process
+Get-WmiObject Win32_Process |  where{$_.processname -match 'python'}
+Get-WmiObject Win32_Process |  where{$_.processname -match 'python'}  | select -first 2
+Get-WmiObject Win32_Process |  where{$_.processname -match 'python'}  | select -first 2 | select commandline
+
+
 # Display only the current folder instead of the full path
 # set windows title to current path
 function prompt {
