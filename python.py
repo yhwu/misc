@@ -123,4 +123,15 @@ for key in my_shelf:
 my_shelf.close()
 
 
-
+# parallel download
+from urllib.request import urlretrieve
+from multiprocessing import Pool
+def fetch_url(x): return urlretrieve(url=x[0], filename=x[1])
+if __name__ == '__main__':
+    downlist = [('http://samplecsvs.s3.amazonaws.com/Sacramentorealestatetransactions.csv', '1.csv'),
+                ('http://samplecsvs.s3.amazonaws.com/Sacramentorealestatetransactions.csv', '2.csv'),
+                ('http://samplecsvs.s3.amazonaws.com/SalesJan2009.csv', '3.csv'),
+                ('http://samplecsvs.s3.amazonaws.com/TechCrunchcontinentalUSA.csv', '4.csv')]
+    res = Pool(10).map(fetch_url, downlist)
+    print(res)
+  
