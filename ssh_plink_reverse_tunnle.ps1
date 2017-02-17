@@ -9,11 +9,14 @@
 #     kill (Get-WmiObject Win32_Process | where CommandLine -Match 'plink.*localhost').ProcessID
 #
 #
-$key = 'C:\User\bob\.ssh\id_rsa.ppk'
-$plinkargs = "-i $key -N -R 0.0.0.0:3489:localhost:3389 bob@bobscompu.com"
-$log = 'C:\Users\bob\log.txt'
+$key = 'C:\Users\bob\.ssh\id_rsa.ppk'
+$remoteport = '3489'
+$remoteaccount = 'bob@bobcompu.com'
+$localport = '3389'
+$plinkargs = "-i $key -N -R 0.0.0.0:${remoteport}:localhost:$localport $remoteaccount"
+$log = 'C:\Users\bob\log.ssh.txt'
 do {
-    $n = plink.exe -i $key bob@bobscompu.com  'netstat -an' | sls 3489 | Measure-Object
+    $n = plink.exe -i $key $remoteaccount  'netstat -an' | sls $remoteport | Measure-Object
     if ($n.Count -ge 1 ) { (date) + ' : connected' | Add-Content $log }
     else {
         (date) + ' : broken' | Add-Content $log
