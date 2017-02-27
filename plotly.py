@@ -16,3 +16,6 @@ values, base = np.histogram(x, range=range, bins=40)
 cumulative = np.cumsum(values)
 data = [go.Scatter(x=base, y=cumulative, mode='lines', name='cumcount')]
 offline.plot(data, filename='flowratiocumcount.html', auto_open=True)
+
+layout = go.Layout(title='figure1', xaxis=dict(title='month', autotick=False),
+			yaxis=dict(title='monthly_pnl', tickprefix = '$', tickformat = '0,000') )
