@@ -23,6 +23,9 @@ conda update conda
 conda update anaconda
 conda search --outdated
 conda update --all
+# downgrade upgrade python, after that manually modify registry paths
+conda search python
+conda install python=3.5.0
 
 
 # show an object
