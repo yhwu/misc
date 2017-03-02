@@ -28,18 +28,24 @@ ls | sort -Descending -property LastWriteTime
 
 # head, tail
 Get-Content .\stdout.txt -Head 5
+gc .\stdout.txt | select -first 5
 Get-Content .\stdout.txt -Wait
 Get-Content .\stdout.txt -Tail 5
+gc .\stdout.txt | select -last 5
+
+# grep 
+cat C:\Windows\win.ini | Select-String ext
+cat C:\Windows\win.ini | sls ext
+cat C:\Windows\win.ini | sls -pattern "m.*ext"
+
+# which
+Get-Command notepad
 
 # set PATH
 setx PYTHONPATH "$env:PYTHONPATH;$pwd"
 
-# open current folder with file explorer
+# open folder or files
 Invoke-Item .
 ii .
-
-
-# open a file
-Invoke-Item a.csv
 ii a.csv
 
