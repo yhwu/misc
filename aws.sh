@@ -1,11 +1,33 @@
 aws s3 mb s3://myclust
 
-#copy into table from s3, table must exists, have to deal with duplicates
-copy schema.table 
-from 's3://bucket/prefix.' 
-credentials 'aws_access_key_id=xxx;aws_secret_access_key=xxx'
-region 'us-east-1' 
-csv gzip ignoreheader 1 emptyasnull;
+# unload table
+unload ('select * from schema.tab')
+to 's3://myclust/tmp/schema.tab'
+credentials 'aws_access_key_id=xxxx;aws_secret_access_key=xxxx'
+delimiter as ','
+gzip
+escape
+addquotes
+null as ''
+manifest
+allowoverwrite
+;
+
+# copy into table, with identity colum
+truncate schema.tab;
+
+copy schema.tab 
+from 's3://myclust/tmp/schema.tabmanifest'
+credentials 'aws_access_key_id=xxxx;aws_secret_access_key=xxxx'
+delimiter AS ','
+gzip
+REMOVEQUOTES
+EXPLICIT_IDS
+escape
+null as ''
+manifest
+;
+
 
 #check error
 select query, substring(filename,22,25) as filename,line_number as line, 
