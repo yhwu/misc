@@ -23,7 +23,8 @@ conda info -e
 activate tensorflow
 activate tensorflow-gpu
 conda list
-# note activate doesn't work in powershell, use cmd or anaconda prompt
+# note activate doesn't work in powershell, use cmd or anaconda prompt, or use this
+# https://github.com/Liquidmantis/PSCondaEnvs
 # update
 conda update conda
 conda update anaconda
