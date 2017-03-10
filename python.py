@@ -17,7 +17,12 @@ importlib.reload(portval_func); from portval_func import *
 showquery = lambda session, q : str(q.statement.compile(dialect=session.bind.dialect, compile_kwargs={"literal_binds": True}))
 showquery(session, q)
 
-
+# conda enviroment
+conda info
+conda info -e
+activate tensorflow
+activate tensorflow-gpu
+# note activate doesn't work in powershell, use cmd or anaconda prompt
 # update
 conda update conda
 conda update anaconda
