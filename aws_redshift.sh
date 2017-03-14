@@ -49,6 +49,8 @@ limit 10;
 # check connections
 select * from stv_sessions;
 
+# check table
+select * from pg_tables;
 
 #create table with distkey and sortkey
 create table yinghua.taci99 (
