@@ -29,7 +29,15 @@ manifest
 ;
 
 
-#check error
+# check running queries
+select pid, user_name, starttime, query
+from stv_recents
+where status='Running';
+
+# cancel query
+cancel 11475;
+
+# check error
 select query, substring(filename,22,25) as filename,line_number as line, 
 substring(colname,0,12) as column, type, position as pos, substring(raw_line,0,30) as line_text,
 substring(raw_field_value,0,15) as field_text, 
