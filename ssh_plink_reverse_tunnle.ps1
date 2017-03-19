@@ -1,13 +1,12 @@
-# ssh reverse tunnel using plink
+# ssh reverse tunnel using putty plink
 # The reason to use plink from putty is that openssh would always end up using 100% cpu after sometime, a bug that's known for long time.
-# Here we want to access localhost:port from remotehost:remoteport by opening a reverse tunnel.
-# The following script periodically checks if the connection is established, and if not start plink.
+# Here we want to access localhost:port by accessing remotehost:remoteport through a ssh reverse tunnel.
+# The following script periodically checks if the connection is established, and if not start it.
 # To start this script in background:
 #     Start-Process powershell -ArgumentList "-File C:\Users\bob\thepath\ssh_plink_reverse_tunnel.ps1" -WindowStyle hidden
 # To stop the script, it takes 2 steps: 
 #     kill (Get-WmiObject Win32_Process | where CommandLine -Match 'ssh_plink_reverse').ProcessID
 #     kill (Get-WmiObject Win32_Process | where CommandLine -Match 'plink.*localhost').ProcessID
-#
 #
 $key = 'C:\Users\bob\.ssh\id_rsa.ppk'
 $remoteport = '3489'
