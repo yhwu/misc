@@ -25,6 +25,8 @@ https://github.com/dahlbyk/posh-git
 
 # ls -lst
 ls | sort -Descending -property LastWriteTime
+# remvoe folder
+rm -Recurse -Force
 
 # head, tail
 Get-Content .\stdout.txt -Head 5
