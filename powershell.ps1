@@ -27,6 +27,8 @@ https://github.com/dahlbyk/posh-git
 ls | sort -Descending -property LastWriteTime
 # remvoe folder
 rm -Recurse -Force
+# get full path of a file
+ls .\python.ini | Select-Object FullName
 
 # head, tail
 Get-Content .\stdout.txt -Head 5
