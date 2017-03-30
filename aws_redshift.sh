@@ -13,20 +13,31 @@ manifest
 allowoverwrite
 ;
 
-# copy into table, with identity colum
-truncate schema.tab;
+# create table and load from s3
+DROP TABLE if exists public.energy;
+CREATE TABLE public.energy (
+    "rto" varchar(10) NOT NULL,
+    "date" date NOT NULL,
+    "hour" integer NOT NULL,
+    "daenergy" double precision,
+    "rtenergy" double precision
+) DISTSTYLE ALL SORTKEY ("rto", "date", "hour");
+COMMIT;
 
-copy schema.tab 
-from 's3://myclust/tmp/schema.tabmanifest'
-credentials 'aws_access_key_id=xxxx;aws_secret_access_key=xxxx'
+copy public.energy 
+from 's3://xxx.csv'
+credentials 'aws_access_key_id=xxx;aws_secret_access_key=xxx'
+IGNOREHEADER 1
 delimiter AS ','
-gzip
+-- gzip
 REMOVEQUOTES
 EXPLICIT_IDS
 escape
 null as ''
-manifest
+-- manifest
 ;
+COMMIT;
+
 
 
 # check running queries
