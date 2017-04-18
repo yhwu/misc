@@ -1,12 +1,14 @@
 aws s3 mb s3://myclust
 
 # date etc
-select sysdate::date as today,
+select 
+sysdate::date as today,
 dateadd(day, -14, sysdate)::date as twoweeksbefore,
 dateadd(day,1, add_months(last_day(sysdate), -1))::date as ym1,
 last_day(sysdate) as monthend,
 dateadd(day,1, last_day(sysdate))::date as nextym1
 ;
+
 
 # unload table
 unload ('select * from schema.tab')
@@ -20,6 +22,7 @@ null as ''
 manifest
 allowoverwrite
 ;
+
 
 # create table and load from s3
 DROP TABLE if exists public.energy;
