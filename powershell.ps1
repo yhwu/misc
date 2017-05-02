@@ -23,6 +23,9 @@ notepad++.exe $PROFILE
 # git for powershell
 https://github.com/dahlbyk/posh-git
 
+# alias
+New-Alias ssh "C:\Program Files\Git\usr\bin\ssh.exe"
+
 # ls -lst
 ls | sort -Descending -property LastWriteTime
 # remvoe folder
