@@ -1,8 +1,13 @@
 # docker run
 docker run -it --name image-dev ubuntu:16.04 /bin/bash
-docker run --rm -it --name image-dev ubuntu:16.04 /bin/bash
+docker run --rm -it --name image-dev ubuntu:16.04 /bin/bash # remove after exit
 docker start -i 18ff6cec386a # attach to a quited docker
 docker exec -i -t 665b4a1e17b6 /bin/bash # attach to a running docker
+
+# dock stop
+docker stop --time=30 foo
+docker kill --signal=SIGINT foo
+docker rm --force foo
 
 # docker ps
 docker ps -a
