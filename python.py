@@ -20,7 +20,8 @@ showquery = lambda session, q : str(q.statement.compile(dialect=session.bind.dia
 showquery(session, q)
 
 # sqlalchemy create one table
- Model.__table__.create(db.session.bind, checkfirst=True) 
+Model.__table__.create(db.session.bind, checkfirst=True) 
+session.add(Model(a='a', b='b'))
 
 # conda enviroment
 conda info
