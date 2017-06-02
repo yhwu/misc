@@ -19,6 +19,9 @@ importlib.reload(portval_func); from portval_func import *
 showquery = lambda session, q : str(q.statement.compile(dialect=session.bind.dialect, compile_kwargs={"literal_binds": True}))
 showquery(session, q)
 
+# sqlalchemy create one table
+ Model.__table__.create(db.session.bind, checkfirst=True) 
+
 # conda enviroment
 conda info
 conda info -e
