@@ -14,6 +14,10 @@ from dateutil.relativedelta import relativedelta
 import importlib
 importlib.reload(portval_func); from portval_func import *
 
+# logging
+import logging
+logging.getLogger().setLevel(logging.INFO)
+
 # nosetest options
 --all-modules -a "!slow,!aws"
 
