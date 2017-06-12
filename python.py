@@ -1,27 +1,32 @@
 # imports
-# plotly
+## plotly
 import plotly.plotly as py
 from plotly.graph_objs import Scatter, Figure, Layout
 import plotly.offline as offline
 from plotly import tools
-#time
-import datetime
+
+## time
+from datetime import date, datetime, timedelta
 import calendar
 from dateutil.relativedelta import relativedelta
-# load, reload mudule
+
+## load, reload mudule
 import importlib
 importlib.reload(portval_func); from portval_func import *
 
 # nosetest options
 --all-modules -a "!slow,!aws"
 
-# sqlalchemy show full statement
+# sqlalchemy 
+## show full statement
 showquery = lambda session, q : str(q.statement.compile(dialect=session.bind.dialect, compile_kwargs={"literal_binds": True}))
 showquery(session, q)
-
-# sqlalchemy create one table
-Model.__table__.create(db.session.connection(), checkfirst=True) 
+## sqlalchemy create one table
+Model.__table__.drop(session.connection())
+Model.__table__.create(session.connection(), checkfirst=True) 
 session.add(Model(a='a', b='b'))
+## sqlalchemy column names
+[c.name for c in Model.__table__.columns]
 
 # conda enviroment
 conda info
@@ -47,20 +52,6 @@ def reprobj(obj):
                '\n\t'.join([p + '=' + str(obj.__getattribute__(p)) for p in obj.__dir__() if not p.startswith('_')]))
 
     
-# tricky behaviours
-1. sum of NaN is 0 by default
-nn = pd.DataFrame({'a' : [np.nan] * 10, 'b' : [np.nan] * 10})
-nn.sum()
-Out[81]: 
-a    0.0
-b    0.0
-dtype: float64
-In[83]: nn.sum(skipna=False)
-Out[83]: 
-a   NaN
-b   NaN
-dtype: float64
-
 # show code of a function
 func??
 
