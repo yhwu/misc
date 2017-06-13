@@ -10,6 +10,12 @@ from datetime import date, datetime, timedelta
 import calendar
 from dateutil.relativedelta import relativedelta
 
+datetime.strptime(updated, "%Y%m%d").date()
+pd.Timestamp(date(2014,1,1)).to_datetime()
+pd.to_datetime(a.date, format='%m/%d/%Y') 
+pd.to_datetime(a.date, infer_datetime_format=True) # either provide format or infer_datetime_format, otherwise every slow
+
+
 ## load, reload mudule
 import importlib
 importlib.reload(portval_func); from portval_func import *
@@ -80,11 +86,6 @@ np.set_printoptions(linewidth=150)
 pip install .\python_igraph-0.7.1.post6-cp35-none-win_amd64.whl
 # source http://www.lfd.uci.edu/~gohlke/pythonlibs/#pycairo
 pip install .\pycairo-1.10.0-cp35-cp35m-win_amd64.whl
-
-
-# date to datetime
-pd.Timestamp(date(2014,1,1)).to_datetime()
-pd.to_datetime(a.date, format='%m/%d/%Y') # format is needed, otherwise every slow
 
 
 # arg parser in interactive console
