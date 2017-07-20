@@ -1,3 +1,18 @@
+# troubleshooting connections, locks, etc
+select * from pg_tables;
+select * from pg_table_def;
+
+select * from pg_catalog.pg_locks;
+select * from pg_catalog.pg_stat_activity;
+
+select * from stv_locks;
+select * from stv_recents;
+select * FROM stv_sessions;
+select pg_terminate_backend(21803);
+
+# https://stackoverflow.com/questions/19568027/redshift-drop-or-truncate-table-very-very-slow
+
+
 aws s3 mb s3://myclust
 
 # date etc
