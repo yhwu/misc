@@ -9,7 +9,6 @@ select * from stv_locks;
 select * from stv_recents;
 select * FROM stv_sessions;
 select pg_terminate_backend(21803);
-
 # https://stackoverflow.com/questions/19568027/redshift-drop-or-truncate-table-very-very-slow
 
 
