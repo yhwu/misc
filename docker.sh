@@ -21,6 +21,8 @@ docker rmi $(docker images -aq)
 # docker images
 docker images
 docker diff image-dev
+docker save -o <save image to path> <image name>
+docker load -i <path to image file>
 
 # docker commit
 docker commit -m 'something' 1xxxxxxa ubuntu-a1
