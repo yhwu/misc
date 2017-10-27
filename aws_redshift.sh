@@ -1,3 +1,8 @@
+# s3
+aws s3 mb s3://myclust
+aws s3 sync s3://bucket/pjm2 .\bucket\ --exclude 'nov2016/*'
+
+
 # troubleshooting connections, locks, etc
 select * from pg_tables;
 select * from pg_table_def;
@@ -12,7 +17,6 @@ select pg_terminate_backend(21803);
 # https://stackoverflow.com/questions/19568027/redshift-drop-or-truncate-table-very-very-slow
 
 
-aws s3 mb s3://myclust
 
 # date etc
 select 
