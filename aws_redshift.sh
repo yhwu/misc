@@ -1,6 +1,6 @@
 # s3
 aws s3 mb s3://myclust
-aws s3 sync s3://bucket/pjm2 .\bucket\ --exclude 'nov2016/*'
+aws s3 sync s3://bucket/pjm2 .\bucket\ --exclude 'nov2016/*' --exclude 'share/*'
 
 
 # troubleshooting connections, locks, etc
