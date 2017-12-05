@@ -2,26 +2,35 @@
 # follow instructions from https://www.gridpack.org/wiki/index.php/Building_on_Ubuntu
 
 # install some standard libraries
-sudo apt-get -y install git
-sudo apt-get -y install libboost-all-dev
-sudo apt-get -y install openmpi-bin make cmake git gfortran libblas-dev liblapack-dev doxygen
-sudo apt-get -y install libmetis-dev libparmetis-dev
-sudo apt-get -y install glpk-utils  libglpk-dev
-sudo apt-get -y install indicator-multiload # not necessary
+# sudo apt-get -y install git
+# sudo apt-get -y install libboost-all-dev
+# sudo apt-get -y install openmpi-bin make cmake git gfortran libblas-dev liblapack-dev doxygen
+# sudo apt-get -y install libmetis-dev libparmetis-dev
+# sudo apt-get -y install glpk-utils  libglpk-dev
+# sudo apt-get -y install indicator-multiload # not necessary
 
 
 # install gridpack to $prefix
-prefix="$HOME/tmp/gridpack"
+prefix="$HOME/opt/gridpack"
 
 
-# gather source PETSC, GA, GridPACK
+# gather PETSC, GA, GridPACK
+# note, it is important not to use most recent commits
 mkdir -p $prefix
 cd $prefix
-git clone https://github.com/GridOPTICS/GridPACK.git .
-git submodule update --init
-git clone -b maint https://bitbucket.org/petsc/petsc petsc
-git clone https://github.com/GlobalArrays/ga.git
 
+# git clone https://github.com/GridOPTICS/GridPACK.git .
+# git submodule update --init
+
+wget http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-3.6.4.tar.gz
+tar zxf petsc-3.6.4.tar.gz
+mv petsc-3.6.4 petsc
+wget https://github.com/GlobalArrays/ga/releases/download/v5.6.2/ga-5.6.2.tar.gz
+tar zxf ga-5.6.2.tar.gz
+mv ga-5.6.2 ga
+wget https://github.com/GridOPTICS/GridPACK/releases/download/v3.1/GridPACK-3.1.tar.gz
+tar zxf GridPACK-3.1.tar.gz
+mv GridPACK-3.1 GridPACK
 
 # install PETSC
 PETSC_DIR="$prefix/petsc"
@@ -86,7 +95,7 @@ make install
 
 
 # install GridPack
-cd $prefix/src/cmake-modules
+cd $prefix
 cmake -Wno-dev --debug-try-compile \
       -D PETSC_DIR:STRING="$prefix/petsc" \
       -D PETSC_ARCH:STRING="arch-ubuntu-real-opt" \
@@ -94,11 +103,11 @@ cmake -Wno-dev --debug-try-compile \
       -D MPI_CXX_COMPILER:STRING="mpicxx" \
       -D MPI_C_COMPILER:STRING="mpicc" \
       -D MPIEXEC:STRING="mpiexec" \
-      -D MPIEXEC_MAX_NUMPROCS:STRING="2" \
-      -D GRIDPACK_TEST_TIMEOUT:STRING=20 \
+      -D MPIEXEC_MAX_NUMPROCS:STRING="4" \
+      -D GRIDPACK_TEST_TIMEOUT:STRING=30 \
       -D USE_GLPK:BOOL=OFF \
       -D CMAKE_INSTALL_PREFIX:PATH="$prefix" \
-      ..
+      ./GridPACK/src
 
-make 
+make
 make test
