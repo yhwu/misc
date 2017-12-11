@@ -16,6 +16,22 @@ select * FROM stv_sessions;
 select pg_terminate_backend(21803);
 # https://stackoverflow.com/questions/19568027/redshift-drop-or-truncate-table-very-very-slow
 
+# check running queries
+select pid, user_name, starttime, query
+from stv_recents
+where status='Running';
+
+# cancel query
+cancel 11475;
+
+# check error
+select query, substring(filename,22,25) as filename,line_number as line, 
+substring(colname,0,12) as column, type, position as pos, substring(raw_line,0,30) as line_text,
+substring(raw_field_value,0,15) as field_text, 
+substring(err_reason,0,45) as reason
+from stl_load_errors 
+order by query desc
+limit 10;
 
 # check locks, https://medium.com/day-i-learned/how-to-detect-locks-on-redshift-f144d23d4e09
 SELECT 
@@ -86,24 +102,6 @@ null as ''
 ;
 COMMIT;
 
-
-
-# check running queries
-select pid, user_name, starttime, query
-from stv_recents
-where status='Running';
-
-# cancel query
-cancel 11475;
-
-# check error
-select query, substring(filename,22,25) as filename,line_number as line, 
-substring(colname,0,12) as column, type, position as pos, substring(raw_line,0,30) as line_text,
-substring(raw_field_value,0,15) as field_text, 
-substring(err_reason,0,45) as reason
-from stl_load_errors 
-order by query desc
-limit 10;
 
 # check connections
 select * from stv_sessions;
