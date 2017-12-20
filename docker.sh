@@ -1,3 +1,8 @@
+# build a docker from a file
+docker build -t elmagin/python27 - < Dockerfile
+Get-Content Dockerfile | docker build -t elmagin/python27 - 
+docker images
+
 # docker run
 docker run -it --name image-dev ubuntu:16.04 /bin/bash
 docker run --rm -it --name image-dev ubuntu:16.04 /bin/bash # remove after exit
