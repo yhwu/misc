@@ -1,4 +1,4 @@
-# mount network share
+# mount/unmount network share
 net use X: \\server\share /persistent:yes
 net use X: /delete
 Remove-PSDrive X
