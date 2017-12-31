@@ -1,5 +1,7 @@
 # mount network share
-net use x: \\server\share /persistent:yes
+net use X: \\server\share /persistent:yes
+net use X: /delete
+Remove-PSDrive X
 
 
 # get process
