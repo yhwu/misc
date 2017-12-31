@@ -1,3 +1,7 @@
+# mount network share
+net use x: \\server\share /persistent:yes
+
+
 # get process
 Get-Process python
 Get-Process | where{$_.ProcessName -match 'py'}
