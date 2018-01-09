@@ -1,3 +1,6 @@
+# pycharm pytest debug console
+add --capture=no to Pycharm Run/Debug configuration - this will show all output in realtime
+
 # imports
 ## plotly
 import plotly.plotly as py
