@@ -17,6 +17,7 @@ Get-WmiObject Win32_Process |  where{$_.processname -match 'python'}  | select -
 
 # set policy
 Set-ExecutionPolicy RemoteSigned
+set-executionpolicy unrestricted
 
 # permanant change
 notepad++.exe $PROFILE
