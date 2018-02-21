@@ -20,7 +20,7 @@ New-Alias scp "C:\opt\msys64\usr\bin\scp.exe"
 New-Alias wget "C:\opt\msys64\usr\bin\wget.exe"
 New-Alias which get-command
 
-# set conda env
+# set conda env; tips from https://github.com/Liquidmantis/PSCondaEnvs
 activate.ps1 elmapy
 
 #### END OF $PROFILE ####
