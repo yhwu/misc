@@ -29,6 +29,10 @@ function prompt {
 }
 
 # alias
+If (Test-Path Alias:ssh) {Remove-Item Alias:ssh}
+If (Test-Path Alias:scp) {Remove-Item Alias:scp}
+If (Test-Path Alias:wget) {Remove-Item Alias:wget}
+
 New-Alias ssh "C:\opt\msys64\usr\bin\ssh.exe"
 New-Alias scp "C:\opt\msys64\usr\bin\scp.exe"
 New-Alias wget "C:\opt\msys64\usr\bin\wget.exe"
