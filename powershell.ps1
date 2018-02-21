@@ -1,8 +1,9 @@
 #### $PROFILE ####
 # set policy
 Set-ExecutionPolicy RemoteSigned
-set-executionpolicy unrestricted
+set-ExecutionPolicy Unrestricted
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Bypass # run as admin once
 
 # Display only the current folder instead of the full path, set windows title to current path
 function prompt {
