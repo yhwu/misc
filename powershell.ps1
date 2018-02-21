@@ -15,6 +15,11 @@ Get-WmiObject Win32_Process |  where{$_.processname -match 'python'}
 Get-WmiObject Win32_Process |  where{$_.processname -match 'python'}  | select -first 2
 Get-WmiObject Win32_Process |  where{$_.processname -match 'python'}  | select -first 2 | select commandline
 
+# set policy
+Set-ExecutionPolicy RemoteSigned
+
+# permanant change
+notepad++.exe $PROFILE
 
 # Display only the current folder instead of the full path
 # set windows title to current path
@@ -23,14 +28,14 @@ function prompt {
   '[PS ' + ($pwd -split '\\')[0]+' '+$(($pwd -split '\\')[-1] -join '\') + '] '
 }
 
-# permanant change
-notepad++.exe $PROFILE
+# alias
+New-Alias ssh "C:\opt\msys64\usr\bin\ssh.exe"
+New-Alias scp "C:\opt\msys64\usr\bin\scp.exe"
+New-Alias wget "C:\opt\msys64\usr\bin\wget.exe"
+
 
 # git for powershell
 https://github.com/dahlbyk/posh-git
-
-# alias
-New-Alias ssh "C:\Program Files\Git\usr\bin\ssh.exe"
 
 # ls -lst
 ls | sort -Descending -property LastWriteTime
