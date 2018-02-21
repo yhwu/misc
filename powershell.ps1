@@ -1,3 +1,30 @@
+### $PROFILE ###
+# set policy
+Set-ExecutionPolicy RemoteSigned
+set-executionpolicy unrestricted
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+# Display only the current folder instead of the full path, set windows title to current path
+function prompt {
+  $host.ui.RawUI.WindowTitle = $(get-location)
+  '[PS ' + ($pwd -split '\\')[0]+' '+$(($pwd -split '\\')[-1] -join '\') + '] '
+}
+
+# alias
+If (Test-Path Alias:ssh) {Remove-Item Alias:ssh}
+If (Test-Path Alias:scp) {Remove-Item Alias:scp}
+If (Test-Path Alias:wget) {Remove-Item Alias:wget}
+
+New-Alias ssh "C:\opt\msys64\usr\bin\ssh.exe"
+New-Alias scp "C:\opt\msys64\usr\bin\scp.exe"
+New-Alias wget "C:\opt\msys64\usr\bin\wget.exe"
+New-Alias which get-command
+
+# set conda env
+activate.ps1 elmapy
+
+
+
 # mount/unmount network share
 net use X: \\server\share /persistent:yes
 net use X: /delete
@@ -14,29 +41,6 @@ Get-Process python | Stop-Process
 Get-WmiObject Win32_Process |  where{$_.processname -match 'python'}
 Get-WmiObject Win32_Process |  where{$_.processname -match 'python'}  | select -first 2
 Get-WmiObject Win32_Process |  where{$_.processname -match 'python'}  | select -first 2 | select commandline
-
-# set policy
-Set-ExecutionPolicy RemoteSigned
-set-executionpolicy unrestricted
-
-# permanant change
-notepad++.exe $PROFILE
-
-# Display only the current folder instead of the full path
-# set windows title to current path
-function prompt {
-  $host.ui.RawUI.WindowTitle = $(get-location)
-  '[PS ' + ($pwd -split '\\')[0]+' '+$(($pwd -split '\\')[-1] -join '\') + '] '
-}
-
-# alias
-If (Test-Path Alias:ssh) {Remove-Item Alias:ssh}
-If (Test-Path Alias:scp) {Remove-Item Alias:scp}
-If (Test-Path Alias:wget) {Remove-Item Alias:wget}
-
-New-Alias ssh "C:\opt\msys64\usr\bin\ssh.exe"
-New-Alias scp "C:\opt\msys64\usr\bin\scp.exe"
-New-Alias wget "C:\opt\msys64\usr\bin\wget.exe"
 
 
 # git for powershell
@@ -61,8 +65,6 @@ cat C:\Windows\win.ini | Select-String ext
 cat C:\Windows\win.ini | sls ext
 cat C:\Windows\win.ini | sls -pattern "m.*ext"
 
-# which
-Get-Command notepad
 
 # set PATH
 setx PYTHONPATH "$env:PYTHONPATH;$pwd"
