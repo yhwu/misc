@@ -1,4 +1,4 @@
-### $PROFILE ###
+#### $PROFILE ####
 # set policy
 Set-ExecutionPolicy RemoteSigned
 set-executionpolicy unrestricted
@@ -23,6 +23,7 @@ New-Alias which get-command
 # set conda env
 activate.ps1 elmapy
 
+#### END OF $PROFILE ####
 
 
 # mount/unmount network share
