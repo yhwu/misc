@@ -57,6 +57,11 @@ conda update --all
 # downgrade upgrade python, after that manually modify registry paths
 conda search python
 conda install python=3.5.0
+# remove env
+deactivate elmapy
+conda env remove --name elmapy
+conda create -n elmapy --clone root
+
 
 
 # show an object
