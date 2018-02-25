@@ -12,6 +12,8 @@ powercfg -h off
 
 # permanantly disable windows firewall on windows 10
 netsh advfirewall set allprofiles state off
+netsh firewall set notifications mode = disable profile = profile
+
 
 # by registry
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\Standard Profile]
