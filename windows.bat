@@ -15,6 +15,15 @@ netsh advfirewall set allprofiles state off
 netsh firewall set notifications mode = disable profile = profile
 
 
+# disable password experiration
+net accounts /maxpwage:unlimited
+
+
+# start ubuntu WSL services, save the following as vbs, and put in shell:startup 
+set ws=wscript.createobject("wscript.shell")
+ws.run "C:\Windows\System32\bash.exe -c 'sudo service cron start; sudo /usr/sbin/sshd -D'",0
+
+
 # by registry
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\Standard Profile]
 "DisableNotifications"=dword:00000001
@@ -26,9 +35,6 @@ netsh firewall set notifications mode = disable profile = profile
 # use Local Group Policy Editor,  gpedit.msc, C:\Windows\System32\gpedit.msc
 # go to Computer Configuration/Administrative Templates/Windows Components/Windows Defender
 
-
-# disable password experiration
-net accounts /maxpwage:unlimited
 
 # disable windows autoupdate
 gpedit.msc
