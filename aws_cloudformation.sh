@@ -13,7 +13,7 @@ aws autoscaling set-desired-capacity --auto-scaling-group-name $myasg --desired-
 aws autoscaling update-auto-scaling-group --auto-scaling-group-name $myasg --min-size 5 --max-size 5
 
 ## autoscale between 0 and 10
-aws autoscaling update-auto-scaling-group --auto-scaling-group-name $myasg --min-size 0 --max-size 10
+aws autoscaling update-auto-scaling-group --auto-scaling-group-name $myasg --min-size 0 --max-size 10 --desired-capacity 5
 
 ## stop and resume Terminate
 aws autoscaling suspend-processes --auto-scaling-group-name $myasg --scaling-processes  Terminate
