@@ -10,4 +10,4 @@ aws autoscaling set-desired-capacity --auto-scaling-group-name $myasg --desired-
 aws autoscaling suspend-processes --auto-scaling-group-name $myasg --scaling-processes  Terminate
 aws autoscaling resume-processes --auto-scaling-group-name $myasg --scaling-processes  Terminate
 
-aws autoscaling update-auto-scaling-group --auto-scaling-group-name my-auto-scaling-group --health-check-type ELB --health-check-grace-period 60
+aws autoscaling update-auto-scaling-group --auto-scaling-group-name $myasg --min-size 5 --max-size 5
