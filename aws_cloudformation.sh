@@ -1,6 +1,7 @@
-aws cloudformation list-stacks
+aws cloudformation list-stacks | grep StackName
 aws cloudformation list-stack-resources --stack-name EnginFrame
-aws cloudformation list-stack-resources --stack-name EnginFrame-DefaultCluster-11221
+aws cloudformation list-stack-resources --stack-name EnginFrame-DefaultCluster-xxx
+aws cloudformation list-stack-resources --stack-name EnginFrame-DefaultCluster-xxx | grep -A4 AutoScalingGroup
 
 myasg="EnginFrame-DefaultCluster-1DO8VE45BMXK8-ComputeFleet-1DHZ0QM5NHHTJ"
 aws autoscaling describe-auto-scaling-groups --auto-scaling-group-names $myasg
