@@ -12,3 +12,5 @@ aws autoscaling suspend-processes --auto-scaling-group-name $myasg --scaling-pro
 aws autoscaling resume-processes --auto-scaling-group-name $myasg --scaling-processes  Terminate
 
 aws autoscaling update-auto-scaling-group --auto-scaling-group-name $myasg --min-size 5 --max-size 5
+aws autoscaling update-auto-scaling-group --auto-scaling-group-name $myasg --min-size 0 --max-size 10
+
