@@ -9,10 +9,10 @@ aws autoscaling describe-auto-scaling-groups --auto-scaling-group-names $myasg
 ## set next target number of nodes at trigger up/down event, doesn't do much, useless
 aws autoscaling set-desired-capacity --auto-scaling-group-name $myasg --desired-capacity 5
 
-## maintain 5 nodes
+## maintain 5 nodes, this is the most effective way to size the cluster
 aws autoscaling update-auto-scaling-group --auto-scaling-group-name $myasg --min-size 5 --max-size 5
 
-## autoscale between 0 and 10
+## autoscale between 0 and 10, remember to reset back to avoid unnecessary charges
 aws autoscaling update-auto-scaling-group --auto-scaling-group-name $myasg --min-size 0 --max-size 10 --desired-capacity 5
 
 ## stop and resume Terminate
