@@ -12,6 +12,8 @@ aws autoscaling set-desired-capacity --auto-scaling-group-name $myasg --desired-
 
 ## maintain 5 nodes, this is the most effective way to size the cluster
 aws autoscaling update-auto-scaling-group --auto-scaling-group-name $myasg --min-size 5 --max-size 5
+aws autoscaling describe-auto-scaling-instances
+# note: after the instances are in service, it takes a while for them to join the cluster. 
 
 ## autoscale between 0 and 10, remember to reset back to avoid unnecessary charges
 aws autoscaling update-auto-scaling-group --auto-scaling-group-name $myasg --min-size 0 --max-size 10 --desired-capacity 5
