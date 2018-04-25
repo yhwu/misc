@@ -22,3 +22,9 @@ aws autoscaling update-auto-scaling-group --auto-scaling-group-name $myasg --min
 aws autoscaling suspend-processes --auto-scaling-group-name $myasg --scaling-processes  Terminate
 aws autoscaling resume-processes --auto-scaling-group-name $myasg --scaling-processes  Terminate
 
+## deal with hosts that are terminated but still registered by SGE
+# https://forums.aws.amazon.com/thread.jspa?threadID=241553
+sudo su sgeadmin
+qmod -d all.q
+qdel -f 307
+qconf -de ip-10-0-0-xx
