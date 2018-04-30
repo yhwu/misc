@@ -8,6 +8,7 @@
 #$ -j yes
 #$ -pe smp 8
 #$ -R yes
+#$ -r yes
 #$ -l h_vmem=15G
 #$ -l mem_free=14G
 #$ -t 1-2
