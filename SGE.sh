@@ -25,5 +25,11 @@ qstat
 qdel
 qhost
 
+## rerun a job in case the host went away
+# https://forums.aws.amazon.com/thread.jspa?threadID=178780
+# If you modify the SGE configuration with "qconf -mconf" (as root) and set "reschedule_unknown" to a non-zero value, a job submitted as re-runnable (-r y) will automatically be rerun on another host once it becomes available.
+# Jobs or tasks without checkpointing would be started from scratch on the new instances once they became available.
+#If you'd like, you can test this behavior by running standard on-demand instances, submit a job to them, then terminate the instance. The job should automatically start up again with a "R" state in qstat showing it's been rerun on a new instance.
+
 
 
