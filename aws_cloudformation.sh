@@ -3,6 +3,10 @@ aws cloudformation list-stack-resources --stack-name EnginFrame
 aws cloudformation list-stack-resources --stack-name EnginFrame-DefaultCluster-xxx
 aws cloudformation list-stack-resources --stack-name EnginFrame-DefaultCluster-xxx | grep -A4 AutoScalingGroup
 
+mystack=EnginFrame-DefaultCluster-xxx
+aws cloudformation describe-stacks --stack-name EnginFrame
+aws cloudformation describe-stacks --stack-name $mystack
+
 myasg="EnginFrame-DefaultCluster-1DO8VE45BMXK8-ComputeFleet-1DHZ0QM5NHHTJ"
 aws autoscaling describe-auto-scaling-groups --auto-scaling-group-names $myasg
 aws autoscaling describe-auto-scaling-instances
