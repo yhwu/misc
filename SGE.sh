@@ -33,6 +33,6 @@ qhost
 #If you'd like, you can test this behavior by running standard on-demand instances, submit a job to them, then terminate the instance. The job should automatically start up again with a "R" state in qstat showing it's been rerun on a new instance.
 sudo su sgeadmin
 qconf -mconf
-
+qconf -rattr queue rerun TRUE all.q
 
 
