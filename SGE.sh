@@ -2,6 +2,7 @@
 
 ## qsub file header
 #!/bin/bash
+#$ -S bash
 #$ -N ML
 #$ -cwd
 #$ -V
