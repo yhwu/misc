@@ -1,23 +1,41 @@
 # http://www.pjm.com/~/media/etools/data-miner-2/data-miner-2-api-guide.ashx
-# curl
-# curl --compressed
-# "https://api.pjm.com/api/v1/da_hrl_lmps?download=true&rowCount=1500&sort=
-# datetime_beginning_ept&order=Asc&startRow=1&datetime_beginning_ept=9/1/2016 00:00to10/31/2016
-# 23:00&pnode_id=48592&subscription-key=<yourkeyhere>" -o C:\<yourpath here>
-    
-import http.client, urllib.request, urllib.parse, urllib.error, base64
-headers = {'Ocp-Apim-Subscription-Key': '<key>', 'content-type' : 'application/xml'}
-params = urllib.parse.urlencode({})
+import configparser
+import gzip
+import http.client
+import os
+import urllib.error
+
+import pandas as pd
+pd.set_option('display.width', 150)
+
+headers = {'Ocp-Apim-Subscription-Key': '{subscription key}'}
+
+inifile = os.getenv('CONFIG')
+config = configparser.ConfigParser()
+config.read(inifile)
+headers['Ocp-Apim-Subscription-Key'] = config.get('pjmdataminer2', 'key')
+
+params = urllib.parse.urlencode({
+    'download': True,
+    'rowCount': 50000,
+    'startRow': 1,
+    'datetime_beginning_ept': '2018-05-13 00:00',
+    'type': 'ZONE; RESIDUAL_METERED_EDC',
+    'row_is_current': True,
+})
+
 try:
     conn = http.client.HTTPSConnection('api.pjm.com')
-    conn.request("GET", "/api/v1/act_sch_interchange/metadata?%s" % params, "{body}", headers)
+    conn.request(method="GET", url="/api/v1/da_hrl_lmps?%s" % params, body=None, headers=headers)
     response = conn.getresponse()
-    print(response.status, response.reason)
     data = response.read()
     conn.close()
-    file = open('output.txt', 'wb')
-    file.write(data)
-    file.close()
-    print("Go to output.txt")
+    if response.getheader(name='Content-Encoding') == 'gzip':
+        r = gzip.decompress(data)
+        df = pd.read_json(r)
+    else:
+        df = pd.read_json(data)
 except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))
+
+print(df)
