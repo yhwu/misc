@@ -25,13 +25,19 @@ where status='Running';
 cancel 11475;
 
 # check error
-select query, substring(filename,22,25) as filename,line_number as line, 
-substring(colname,0,12) as column, type, position as pos, substring(raw_line,0,30) as line_text,
-substring(raw_field_value,0,15) as field_text, 
-substring(err_reason,0,45) as reason
-from stl_load_errors 
-order by query desc
-limit 10;
+SELECT query,
+       SUBSTRING(filename,22,25) AS filename,
+       line_number AS LINE,
+       SUBSTRING(colname,0,12) AS COLUMN,
+       TYPE,
+       POSITION AS pos,
+       SUBSTRING(raw_line,0,30) AS line_text,
+       SUBSTRING(raw_field_value,0,15) AS field_text,
+       SUBSTRING(err_reason,0,45) AS reason
+FROM stl_load_errors
+ORDER BY query DESC LIMIT 10;
+
+
 
 # check locks, https://medium.com/day-i-learned/how-to-detect-locks-on-redshift-f144d23d4e09
 SELECT 
