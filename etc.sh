@@ -11,7 +11,7 @@ sudo openvpn --config /path/to/config.ovpn
 # /boot full
 dpkg -l linux-{image,headers}-"[0-9]*" | awk '/^ii/{ print $2}' | grep -v -e `uname -r | cut -f1,2 -d"-"` | grep -e '[0-9]' | xargs sudo apt-get -y purge  
 
-# in case above failed
-https://gist.github.com/ipbastola/2760cfc28be62a5ee10036851c654600
+# in case above failed follow instructions from
+# https://gist.github.com/ipbastola/2760cfc28be62a5ee10036851c654600
 
  
