@@ -4,7 +4,13 @@ CREATE USER 'myuser'@'%' IDENTIFIED BY 'mypass';
 GRANT ALL ON *.* TO 'myuser'@'localhost';
 GRANT ALL ON *.* TO 'myuser'@'%';
 
+SELECT User FROM mysql.user;
+desc mysql.user;
+
 -- add database
+show databases;
+show schemas;
+show tables from databasename;
 create database databasename;
 
 
