@@ -14,4 +14,8 @@ dpkg -l linux-{image,headers}-"[0-9]*" | awk '/^ii/{ print $2}' | grep -v -e `un
 # in case above failed follow instructions from
 # https://gist.github.com/ipbastola/2760cfc28be62a5ee10036851c654600
 
- 
+# nomachine headless
+sudo systemctl stop lightdm
+sudo systemctl restart nxserver.service
+
+
