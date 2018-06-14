@@ -18,4 +18,7 @@ dpkg -l linux-{image,headers}-"[0-9]*" | awk '/^ii/{ print $2}' | grep -v -e `un
 sudo systemctl stop lightdm
 sudo systemctl restart nxserver.service
 
+# nomachine back to physical display, when video card is active
+sudo service nxserver stop 
+sudo service nxserver start
 
