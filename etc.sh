@@ -22,3 +22,9 @@ sudo systemctl restart nxserver.service
 sudo service nxserver stop 
 sudo service nxserver start
 
+# ssh auto completion
+# https://unix.stackexchange.com/questions/136351/autocomplete-server-names-for-ssh-and-scp
+# ./ssh/config
+# Host *
+#    HashKnownHosts no
+    
