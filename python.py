@@ -23,9 +23,12 @@ pd.to_datetime(a.date, infer_datetime_format=True) # either provide format or in
 import importlib
 importlib.reload(portval_func); from portval_func import *
 
-# logging
+# logging format
 import logging
-logging.getLogger().setLevel(logging.INFO)
+logging.basicConfig(
+    format='[%(asctime)s %(levelname)-4s %(funcName)20s()] %(message)s',
+    level=logging.INFO,
+    datefmt='%Y-%m-%d %H:%M:%S')
 
 # nosetest options
 --all-modules -a "!slow,!aws"
