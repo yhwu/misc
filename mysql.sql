@@ -1,3 +1,6 @@
+-- show dir
+SHOW VARIABLES WHERE Variable_Name LIKE "%dir";
+
 -- add user
 CREATE USER 'myuser'@'localhost' IDENTIFIED BY 'mypass';
 CREATE USER 'myuser'@'%' IDENTIFIED BY 'mypass';
