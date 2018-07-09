@@ -32,19 +32,29 @@
 - 中路不出台
 
 #### 反手
-- 拨档，击球中上部，高点，球拍高于球，向前找网
+- 拨档，击球中上部，高点，球拍高于球，向前找网，打回是一个动作， 停顿在回之后， 正反手握拍尽量一致
 - 快撕，击球上升期，向前摩擦, 借力打力，手腕手指瞬间发力, 拍头上扬，避免顶手腕
 - 弧圈， 重心下沉， 挺腹法力， 手臂向右不是向前， 少用手腕， 注意手臂收和展， 发力紧手同时完成
 ```
+https://www.youtube.com/watch?v=EUy-sF1CKfQ&index=6&list=PLVq6z4CC_4054jZxF-OoFtT9WzQbcL59-&t=0s
 https://www.youtube.com/watch?v=SuHzomIZkUA&t=23s  
 https://www.youtube.com/watch?v=jycEsrFkQzA  
 ```
-
 
 #### 正手
 - 手臂舒展，拍面向前，避免钩手, 避免抬肘
 - 不转或上旋，球拍要高于球
 - 击球时手臂向左眼眉方向挥动
+
+#### 还原滑移 
+- 手臂身体同时还原到台内
+- 向右移动, 左脚先启动, 向左移动, 又脚先启动
+- 滑移和手臂要同时到位
+- 反手两脚平行, 正手右脚稍后
+```
+https://www.youtube.com/watch?v=ZHW1Xy9_bi0&list=PLVq6z4CC_4054jZxF-OoFtT9WzQbcL59-&index=17
+```
+
 
 #### 自我纠正
 - 最重要是身体, 手臂和手要放松
