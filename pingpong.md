@@ -48,11 +48,14 @@ https://www.youtube.com/watch?v=jycEsrFkQzA
 
 #### 还原滑移 
 - 手臂身体同时还原到台内
+- 步法落地时手应该是拉开的
 - 向右移动, 左脚先启动, 向左移动, 又脚先启动
-- 滑移和手臂要同时到位
 - 反手两脚平行, 正手右脚稍后
+- 侧冲需要主动加速拉手
+- 会上旋球球身体要更偏后
 ```
 https://www.youtube.com/watch?v=ZHW1Xy9_bi0&list=PLVq6z4CC_4054jZxF-OoFtT9WzQbcL59-&index=17
+https://www.youtube.com/watch?v=wYT2rMRDfIA&index=34&list=PLVq6z4CC_4054jZxF-OoFtT9WzQbcL59-
 ```
 
 
