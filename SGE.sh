@@ -16,6 +16,11 @@
 #$ -tc 10
 
 
+# hold a job
+qalter -h u $jobid
+qalter -h U $jobid # unhold
+
+
 # list all parallel enviroments
 qconf -sql
 
