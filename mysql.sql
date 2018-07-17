@@ -1,5 +1,8 @@
 -- show dir
-SHOW VARIABLES WHERE Variable_Name LIKE "%dir";
+show variables WHERE Variable_Name LIKE "%dir";
+show processlist;
+kill #;
+
 
 -- add user
 CREATE USER 'myuser'@'localhost' IDENTIFIED BY 'mypass';
