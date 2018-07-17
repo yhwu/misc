@@ -1,8 +1,12 @@
--- show dir
+-- show information
 show variables WHERE Variable_Name LIKE "%dir";
 show processlist;
 kill #;
-
+show databases;
+show schemas;
+show tables;
+show index from <table>;
+show create table <table>;
 
 -- add user
 CREATE USER 'myuser'@'localhost' IDENTIFIED BY 'mypass';
@@ -14,8 +18,6 @@ SELECT User FROM mysql.user;
 desc mysql.user;
 
 -- add database
-show databases;
-show schemas;
 show tables from databasename;
 create database databasename;
 
