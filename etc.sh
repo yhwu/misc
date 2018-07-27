@@ -30,4 +30,7 @@ sudo service nxserver start
 # ./ssh/config
 # Host *
 #    HashKnownHosts no
-    
+
+
+# ConEmu setting for wsl
+# set "PATH=%ConEmuBaseDirShort%\wsl;%PATH%" & %ConEmuBaseDirShort%\conemu-cyg-64.exe --wsl -cur_console:pm:/mnt -cur_console:p
