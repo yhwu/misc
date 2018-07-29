@@ -75,6 +75,10 @@ https://www.youtube.com/watch?v=wYT2rMRDfIA&index=34&list=PLVq6z4CC_4054jZxF-OoF
 - 重心不要乱动, 不要上下跳动
 - 在合适的位置击球, 不要早, 也不要晚
 - 拉球时, 顶胯是向前, 不是向上, 拉强下旋时, 加上重心向上, 版型略竖
+```
+from 6'20'', body movement during practice
+https://www.youtube.com/watch?v=k5hIXqEZZk4
+```
 
 
 #### 好文摘录
