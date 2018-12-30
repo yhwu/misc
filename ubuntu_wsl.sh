@@ -11,3 +11,7 @@ sudo apt remove unattended-upgrades
 
 sudo apt-get install openssh-server
 sudo dpkg-reconfigure openssh-server
+
+## 2 add user to sudoers
+sudo visudo
+# paste at the end of file $USER ALL=(ALL) NOPASSWD: ALL 
