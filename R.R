@@ -1,5 +1,5 @@
 #### Libs ####
-libs <- c('matrixStats', 'viridis', 'GGally', 'cowplot', 'data.table', 'methods', 'lubridate', 'ggplot2', 'scales', 'gridExtra', 'knitr', 'kableExtra', 'PerformanceAnalytics', 'gplots')
+libs <- c('tibble', 'ggpmisc', 'matrixStats', 'viridis', 'GGally', 'cowplot', 'data.table', 'methods', 'lubridate', 'ggplot2', 'scales', 'gridExtra', 'knitr', 'kableExtra', 'PerformanceAnalytics', 'gplots')
 null <- suppressMessages(sapply(libs, library, character.only=TRUE))
 options(dplyr.width = Inf)
 options(stringsAsFactors = FALSE)
@@ -23,3 +23,20 @@ p1 <- ggplot(df_pnl_daily, aes(x=date, y=cumpnl)) +
     mytheme
 
 plot_grid(p1, p2, p3, ncol=1, align="v")
+
+
+#### facet, annotation table ####
+## requires 'tibble', 'ggpmisc'
+rtos <- df1[, unique(rto)]
+my.tb <- tibble(rto = rtos,
+                date = as_date("2017-01-01"), 
+                cumpnl = df1[, max(cumpnl), by=c('rto')][rtos, V1, on='rto'],
+                tb = lapply(rtos, function(r) as.tibble(as.data.table(format(df_info[rto==r], digits=2, big.mark = ",", justify='right')))) )
+ggplot(df1, aes(x=date, y=cumpnl, color=set)) + 
+    geom_line(size=1.2) + 
+    scale_y_continuous(labels = dollar) +
+    facet_wrap(~ rto, scales = "free_y") +
+    geom_table(data=my.tb, mapping = aes(date, cumpnl, label = tb), inherit.aes = FALSE, vjust=1, hjust=0) +
+    theme_bw() +
+    mytheme
+
