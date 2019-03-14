@@ -36,7 +36,11 @@ ggplot(df1, aes(x=date, y=cumpnl, color=set)) +
     geom_line(size=1.2) + 
     scale_y_continuous(labels = dollar) +
     facet_wrap(~ rto, scales = "free_y") +
-    geom_table(data=my.tb, mapping = aes(date, cumpnl, label = tb), inherit.aes = FALSE, vjust=1, hjust=0) +
+    geom_table(data=my.tb, mapping = aes(date, cumpnl, label = tb), inherit.aes = FALSE, vjust=1, hjust=0, size=1) +
     theme_bw() +
     mytheme
 
+pngfile <- "C:/tmp/pnl.png"
+ggsave(filename = pngfile, width = 14, height = 10, units = "in")
+print(pngfile)
+                            
