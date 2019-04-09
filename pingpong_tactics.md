@@ -51,6 +51,12 @@
 The less I know about how much spin is on the ball, the more spin I should use. The more spin I put on the ball, the less I need to consider the existing rotation.  
 -- <cite>Werner Schlager</cite>
 
+#### Fast heavy backspin to forehand:
+- push hard, expect attack
+- loop hard  
+As the ball is fast and loaded with backspin, it will bounce away and down from the paddle fast. Whether push or loop, one must engage the rubber by pushing or looping hard. Regardless, the return will be long, so expect attack.  
+Normally, there is little time to prepare for a full loop, so the movement must be fast and compact. What I found helpful are, 1. since there is no time to drop shoulder or body, drop forearm to increase paddle travel distance, 2. use hip to generate forward and upward motion, 3. accelerate in full motion, 4. use more forward motion to engage the rubber, 5. it is crucial not to brush upward as doing so will fail to engage the rubber and the ball would go to the net.   
+
 #### Heavy backspin serve:
 - short: touch, dig, flick(use more lift)
 - long: dig, loop(open-up, aim to elbow)
