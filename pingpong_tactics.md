@@ -77,4 +77,8 @@ Normally, there is little time to prepare for a full loop, so the movement must 
 - backspin: step back, wait until initial drop, loop
 - other: block, loop
 
+## Difficult shot:
 
+#### High heavy backspin:
+- short: hit hard through, really commit
+- long: compact, quick brush
