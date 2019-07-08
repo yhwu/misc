@@ -4,6 +4,8 @@ takeown /f <foldername> /r /d y
 takeown /r /d y /f f:\backup 
 icacls f:\backup /t /grant Everyone:(OI)(CI)F
 
+# unlock bitlocker encrypted drives
+manage-bde -unlock D: -rk C:\tmp\D.BEK
 
 # enable disable hibernation, run elevated
 powercfg -h on
