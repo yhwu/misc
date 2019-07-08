@@ -14,4 +14,5 @@ sudo dpkg-reconfigure openssh-server
 
 ## 2 add user to sudoers
 sudo visudo
-# paste at the end of file $USER ALL=(ALL) NOPASSWD: ALL 
+# paste at the end of file, replace $USER with user name
+$USER ALL=(ALL) NOPASSWD: ALL 
