@@ -9,8 +9,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 ## 0 disable update, too many dangerous side effects
 sudo apt remove unattended-upgrades
 
-## 1 openssh-server
-
+## 1 openssh-server, remember to open port in firewall, remember to allow password
 sudo apt-get install openssh-server
 sudo dpkg-reconfigure openssh-server
 
@@ -19,11 +18,11 @@ sudo visudo
 # paste at the end of file, replace $USER with user name
 $USER ALL=(ALL) NOPASSWD: ALL 
 
-# Register a scheduled task to start ubuntu serices at system startup.
+# Register a scheduled task to start ubuntu services at system startup.
 # run powershell elevated
 $jobname = "StartUbuntu"
 $script =  "Start Ubuntu services"
-$action = New-ScheduledTaskAction –Execute "C:\Windows\System32\bash.exe" -Argument  '-c "sudo service ssh start; sudo service cron start
+$action = New-ScheduledTaskAction –Execute "C:\Windows\System32\bash.exe" -Argument  '-c "sudo service ssh start; sudo service cron start; sleep 365d
 "'
 $trigger = New-ScheduledTaskTrigger -AtStartup
 $Description="start ubuntu services"
