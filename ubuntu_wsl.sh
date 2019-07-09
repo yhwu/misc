@@ -22,8 +22,7 @@ $USER ALL=(ALL) NOPASSWD: ALL
 # run powershell elevated
 $jobname = "StartUbuntu"
 $script =  "Start Ubuntu services"
-$action = New-ScheduledTaskAction –Execute "C:\Windows\System32\bash.exe" -Argument  '-c "sudo service ssh start; sudo service cron start; sleep 365d
-"'
+$action = New-ScheduledTaskAction –Execute "C:\Windows\System32\bash.exe" -Argument  '-c "sudo service ssh start; sudo service cron start; sleep 365d"'
 $trigger = New-ScheduledTaskTrigger -AtStartup
 $Description="start ubuntu services"
 $msg = "Enter the username and password that will run the task"; 
