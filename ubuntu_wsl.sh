@@ -1,3 +1,5 @@
+# some issues and solutions https://low.bi/p/Pd19w2jwRO0#h3-17
+
 # install ubuntu from windows store
 # run powershell elevated
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
