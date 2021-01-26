@@ -1,3 +1,19 @@
+# program has stopped working, close the program, disable it
+1. run gpedit.msc as administrator, 
+Computer Configuration > 
+Administrative Templates > 
+Windows Components > 
+Windows Error Reporting >
+"Prevent display of the user interface for critical errors", enable
+
+2. regedit
+HKEY_CURRENT_USER\Software\Microsoft\Windows\Windows Error Reporting
+set DontShowUI to 1
+
+3. Control Panel > Action Center > Change Action Center settings (top left) > Problem reporting settings
+Select "Never check for solutions"
+
+
 # take ownership of files and grant permission
 takeown /F <filename>
 takeown /f <foldername> /r /d y
