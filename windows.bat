@@ -1,4 +1,5 @@
 # program has stopped working, close the program, disable it
+# https://www.raymond.cc/blog/disable-program-has-stopped-working-error-dialog-in-windows-server-2008/
 1. run gpedit.msc as administrator, 
 Computer Configuration > 
 Administrative Templates > 
