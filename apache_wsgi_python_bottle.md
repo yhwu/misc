@@ -1,10 +1,12 @@
-### run python bottle app under apache server
+### python bottle app behind apache server
 
 Apache + mod_wsgi + python + bottle
 
+```
 yum install httpd-devel
 pip install mod_wsgi
 pip install -U matplotlib
+```
 
 #### 1. LoadModule wsgi_module
 
@@ -23,7 +25,7 @@ sudo chmod 755 -R /home/ec2-user/miniconda3
 
 Start the apache server and make sure there is no error loading the module.
 ```
-systemctl restart httpd
+sudo systemctl restart httpd
 sudo cat /var/log/httpd/error_log
 ```
 
@@ -43,7 +45,7 @@ Listen 5555
         Require all granted
     </Directory>
 
-    WSGIScriptAlias / /var/www/myapp/app.wsgi
+    WSGIScriptAlias / /var/www/myapp/wsgi.py
 
     <Directory /var/www/myapp>
         WSGIProcessGroup myapp
@@ -56,21 +58,20 @@ Listen 5555
 Test and restart the server.
 ```
 apachectl configtest
+httpd -t
 sudo systemctl restart httpd
 ```
 
-Please note you have to specify the static files within the virtualhost, not by bottle. 
+Please note that you have to grant permissions to the static files, css, js, etc. 
 
 
-#### 3. app.wsgi
+#### 3. wsgi.py
 Assume the app is defined in /home/ec2-user/myapp/app.py, and you can run it
 
 ```bottle.run(server=server, host=HOST, port=PORT, reloader=True)```
 
-in a console
+in a console, put the following in ```/var/www/myapp/wsgi.py```
 
-
-put the following in app.wsgi
 ```
 import os, sys, bottle
 os.chdir('/home/ec2-user/myapp')
@@ -80,7 +81,10 @@ import app
 application = bottle.default_app()
 ```
 
-4. restart httpd, hit localhost:5555
+
+#### 4. restart httpd, hit localhost:5555
 ```
 sudo systemctl restart httpd
 ```
+
+After that, if you change your code, just touch the wsgi.py and do a refresh from your browser to inspect the difference.
