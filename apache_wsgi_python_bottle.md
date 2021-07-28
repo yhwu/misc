@@ -62,7 +62,10 @@ httpd -t
 sudo systemctl restart httpd
 ```
 
-Please note that you have to grant permissions to the static files, css, js, etc. 
+Please note that you have to grant permissions to the static files, css, js, etc. Also note that for this virtualhost, it is the ```ec2-user``` who's running it. The ```mod_wsgi-py36.cpython-36m-x86_64-linux-gnu.so``` however, is loaded by another user by the system. So, it is necessary to grant permissions to the python installation.
+
+
+Although python can run multiple threads under linux, it doesn't do that through httpd. In order to use all the cores, you need to tell httpd to use multiple processes like ```processes=4 threads=20``` . 
 
 
 #### 3. wsgi.py
