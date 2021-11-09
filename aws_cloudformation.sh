@@ -33,3 +33,28 @@ qconf -sql
 qmod -d all.q
 qdel -f 307
 qconf -de ip-10-0-0-xx
+
+## in case failed to remove a node
+https://forums.aws.amazon.com/thread.jspa?threadID=241553
+
+HOST_TO_REMOVE=ip-xxx-xx-xx-xx
+# first, you need to delete jobs on this host
+qdel -f <job id>
+# disable the host from queue to avoid any jobs to be allocated to this host
+qmod -d all.q@$HOST_TO_REMOVE
+# wait for jobs to be finished execution on this host, then kill the execution script
+qconf -ke $HOST_TO_REMOVE
+# remove it from the cluster, this opens an editor, just remove the lines referring to this host
+qconf -mq all.q
+# remove it from allhosts group, this also opens an editor, remove lines referring to this host
+qconf -mhgrp @allhosts
+# remove it from execution host list
+qconf -de $HOST_TO_REMOVE
+ 
+#If the host isn't removed then:
+#Remove worker's files
+rm -rf /opt/sge/default/common/local_conf/$HOST_TO_REMOVE.eu-west-1.compute.internal
+rm -rf /opt/sge/default/spool/qmaster/qinstances/all.q/$HOST_TO_REMOVE.eu-west-1.compute.internal
+rm -rf /opt/sge/default/spool/qmaster/exec_hosts/$HOST_TO_REMOVE.eu-west-1.compute.internal
+#restart sge
+/etc/init.d/sgemaster.p6444 restart 
