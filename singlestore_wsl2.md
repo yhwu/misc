@@ -110,3 +110,13 @@
     ```
    SNAPSHOT DATABASE dbname;
     ```
+
+# Expose port 3306
+   * Singlestore installed binding to WSL2 ubuntu's 127.0.0.1
+   * WSL2 automatically forwards windows 127.0.0.1 ports to ubuntu's 127.0.0.1
+   * We only need to forward window's 0.0.0.0's port to window's 127.0.0.1 to expose a ubuntu's port
+   * run the following as administrator and make sure firewall is not blocking port 3306
+   ```
+   netsh interface portproxy add v4tov4 listenport=3306 listenaddress=0.0.0.0 connectport=3306 connectaddress=127.0.0.1
+   ```
+
