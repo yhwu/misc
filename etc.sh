@@ -1,3 +1,18 @@
+# video downloader
+# https://github.com/iawia002/lux
+sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt update
+sudo apt install golang-go
+sudo apt-get install ffmpeg
+go install github.com/iawia002/lux@latest
+
+ulimit -S -n 4096 
+
+~/go/bin/lux  -i -p "https://www.bilibili.com/video/BV1b7411z7EP"
+~/go/bin/lux -f 32-7 -p -start 2 -end 2 "https://www.bilibili.com/video/BV1b7411z7EP"
+~/go/bin/lux -f 32-7 -p -eto -items 1,2,3 "https://www.bilibili.com/video/BV1b7411z7EP"
+
+
 # change refresh rate
 xrandr -r 75
 
