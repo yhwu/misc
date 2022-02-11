@@ -114,9 +114,11 @@
 # Expose port 3306
    * Singlestore installed binding to WSL2 ubuntu's 127.0.0.1
    * WSL2 automatically forwards windows 127.0.0.1 ports to ubuntu's 127.0.0.1
-   * We only need to forward window's 0.0.0.0's port to window's 127.0.0.1 to expose a ubuntu's port
-   * run the following as administrator and make sure firewall is not blocking port 3306
+   * One can forward window's lan ip port to window's 127.0.0.1 to expose a ubuntu's port
    ```
-   netsh interface portproxy add v4tov4 listenport=3306 listenaddress=0.0.0.0 connectport=3306 connectaddress=127.0.0.1
+   # run as administrator and make sure port 3306 is not blocked
+   netsh interface portproxy add v4tov4 listenport=3306 listenaddress=192.168.1.xxx connectport=3306 connectaddress=127.0.0.1
+   # to disable port forwarding
+   netsh interface portproxy delete v4tov4  listenaddress=192.168.1.xxx listenport=3306
    ```
 
